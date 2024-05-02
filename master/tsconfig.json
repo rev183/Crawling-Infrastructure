@@ -32,10 +32,11 @@
     "scheduler/*",
     "src/**/*.ts",
     "src/**/*.html",
-    "../lib"
+    // "../lib"
   ],
   "exclude": [
     "node_modules",
+    "../lib/node_modules/*",
     "**/*.test.ts"
   ]
 }

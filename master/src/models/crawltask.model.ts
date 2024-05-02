@@ -488,7 +488,7 @@ export class TaskHandler {
   }
 
   async getTotalTasks(): Promise<number> {
-    return await this.task_model.find({}).lean().count();
+    return await this.task_model.countDocuments({}).exec();
   }
 
   static getWorkerType (task: ICrawlTask): string {

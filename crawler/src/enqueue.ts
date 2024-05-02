@@ -54,7 +54,7 @@ export class EnqueueHandler {
         this.logger.verbose(`Got task with queue ${task.queue}`);
         return task.queue;
       }
-    } catch (err) {
+    } catch (err: any) {
       this.logger.error(`could not get task: ${err.toString()}`);
     }
 
@@ -75,7 +75,7 @@ export class EnqueueHandler {
       if (queue_name) {
         return await this.insertItems(queue_name, items);
       }
-    } catch(err) {
+    } catch(err: any) {
       this.logger.error(`could not insert items into queue ${queue_name}: ${err.toString()}`);
     }
 

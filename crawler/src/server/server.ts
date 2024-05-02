@@ -19,7 +19,7 @@ async function getConfig() {
         rejectUnauthorized: false,
       });
       return response.body;
-    } catch(err) {
+    } catch(err: any) {
       console.error(err.message);
       return {};
     }

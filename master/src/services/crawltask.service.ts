@@ -87,7 +87,7 @@ export class CrawlTaskService {
     }
 
     try {
-      res.json(await this.task_handler.task_model.update(
+      res.json(await this.task_handler.task_model.updateMany(
         req.body.query,
         req.body.update,
         { multi: true, upsert: false })
@@ -1017,14 +1017,13 @@ function write_file(chunk, obj) {
       }
     }
 
-    return this.task_handler.task_model.findByIdAndUpdate(task_id, update, {new: true},
-      (error: Error, task: any) => {
-        if (error) {
-          return res.status(400).send({error: error.toString()});
-        }
-        return res.json(task);
-      }
-    );
+    return this.task_handler.task_model.findByIdAndUpdate(task_id, update, {new: true})
+      .then(updatedTask => {
+        return res.json(updatedTask);
+      })
+      .catch(err => {
+        return res.status(400).send({error: err.toString()});
+      });
   }
 
 

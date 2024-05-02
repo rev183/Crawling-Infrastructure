@@ -50,7 +50,7 @@ export class QueueHandler {
     let insert_info = null;
 
     if (use_native_driver) {
-      insert_info = await mongoose.connection.db.collection(this.queue_name).insert(to_insert);
+      insert_info = await mongoose.connection.db.collection(this.queue_name).insertMany(to_insert);
     } else {
       // http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html#insertMany
       insert_info = await this.queue_model.insertMany(to_insert, {

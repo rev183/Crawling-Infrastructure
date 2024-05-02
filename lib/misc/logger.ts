@@ -81,7 +81,7 @@ export class LoggingHandler implements ILoggingHandler {
         try {
           fs.mkdirSync(this.logging_root_dir, {recursive: true});
           logging_dir_created = true;
-        } catch (err) {
+        } catch (err: any) {
           console.error('Cannot create logging root directory: ' + err.toString());
         }
       }

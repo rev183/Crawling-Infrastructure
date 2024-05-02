@@ -215,7 +215,8 @@ const ConfigSchema = new mongoose.Schema({
     default: false,
   },
   cluster_size: {
-    type: ClusterSize,
+    type: String,
+    enum: ClusterSize,
   },
   retry_failed_items:{
     type: Number,

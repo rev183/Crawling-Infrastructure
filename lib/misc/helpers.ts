@@ -84,7 +84,7 @@ export async function chunkRead(path: string, callback: any, chunk_size=5242880)
     try {
       num_processed += await callback(arr);
       console.log(`num items processed = ${num_processed}`);
-    } catch(err) {
+    } catch(err: any) {
       console.error(err.toString());
       break;
     }
